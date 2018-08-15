@@ -34,6 +34,7 @@ a {
   color: #42b983;
 }
 .hello{
-  height: 700px;
+  min-height: 700px;
+  background-color: whitesmoke;
 }
 </style>

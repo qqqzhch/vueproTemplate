@@ -20,11 +20,10 @@
 
     					</div>
     				</div>
-    				<div class="navbar-toggle-btn">
-    					<span class="bar"></span>
-    					<span class="bar"></span>
-    					<span class="bar"></span>
+            <div class="navbar-toggle-btn">
+    					<icon name="user" class="navbar-toggle-user"></icon>
     				</div>
+
     				<div class="mobile-navbar">
     					<div class="nav-item active" id="products" style="border-top: 1px solid rgba(255,255,255,.2)">
     						<ul>
@@ -120,7 +119,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.navbar-toggle-user{
 
+  width: 25px;
+  height: 25px;
+  color: white;
+}
 </style>
 
 <style  lang="less">
