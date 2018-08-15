@@ -40,7 +40,8 @@ module.exports = {
         }, {
             loader: "less-loader",
             options: {
-                javascriptEnabled: true
+                javascriptEnabled: true,
+                "inlineJavaScript": true
             }
         }]
      },

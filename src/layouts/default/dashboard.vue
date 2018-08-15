@@ -1,7 +1,8 @@
 <template>
   <div>
+    <div class="bg"></div>
     <header>
-    	<div class="nav">
+    	<div :class="showNav">
     			<div class="container">
     				<div class="logo">
     					<a href="/index.html">
@@ -92,8 +93,27 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      showNav:'nav'
     }
+  },
+  methods: {
+    handleScroll () {
+      var  scrolled = window.scrollY > 50;
+      console.log(window.scrollY);
+      if(scrolled){
+       this.$data.showNav='nav showNav';
+     }else{
+       this.$data.showNav='nav';
+     }
+
+    }
+  },
+  created () {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed () {
+      window.removeEventListener('scroll', this.handleScroll);
   }
 }
 </script>
