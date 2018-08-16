@@ -12,27 +12,27 @@
     				<div class="navbar nav-right">
               <div class="nav-item mao">
                 <a href="javascript:;" >
-                  APPLICATION SCENARIOS
+                  {{ $t("head.menu1") }}
                 </a>
               </div>
               <div class="nav-item mao" >
                 <a href="javascript:;">
-                  WORKING PRINCIPLE
+                  {{ $t("head.menu2") }}
                 </a>
               </div>
               <div class="nav-item mao" >
                 <a href="javascript:;">
-                  ECOSYSTEM
+                  {{ $t("head.menu3") }}
                 </a>
               </div>
               <div class="nav-item mao" >
                 <a href="javascript:;" >
-                  ROADMAP
+                  {{ $t("head.menu4") }}
                 </a>
               </div>
               <div class="nav-item mao" >
                 <a href="https://token.lambda.im/#/register" >
-                  REGISTER/SIGN UP
+                  {{ $t("head.menu5") }}
                 </a>
               </div>
     					<div class="nav-item" style="float:right">
@@ -75,12 +75,12 @@
     			<div class="info">
     				<div class="about">
               <ul>
-                <li class="mao"><a  href="javascript:;" >Application Scenarios</a></li>
-                <li class="mao"><a  href="javascript:;" >Working Principle</a></li>
-                <li class="mao"><a  href="javascript:;" >Ecosystems</a></li>
-                <li class="mao"><a  href="javascript:;" >RoadMap</a></li>
-                <li class="mao"><a  href="http://blog.lambda.im/" >Blog</a></li>
-                <li class="mao"><a  href="mailto:info@lambda.im" >contact us</a></li>
+                <li class="mao"><a  href="javascript:;" >{{ $t("head.menu1") }}</a></li>
+                <li class="mao"><a  href="javascript:;" >{{ $t("head.menu2") }}</a></li>
+                <li class="mao"><a  href="javascript:;" >{{ $t("head.menu3") }}</a></li>
+                <li class="mao"><a  href="javascript:;" >{{ $t("head.menu4") }}</a></li>
+                <li class="mao"><a  href="http://blog.lambda.im/" >{{ $t("head.menu6") }}</a></li>
+                <li class="mao"><a  href="mailto:info@lambda.im" >{{ $t("head.menu5") }}</a></li>
               </ul>
     				</div>
     				<div class="contact">
@@ -130,7 +130,7 @@ export default {
   methods: {
     handleScroll () {
       var  scrolled = window.scrollY > 50;
-      console.log(window.scrollY);
+      // console.log(window.scrollY);
       if(scrolled){
        this.$data.showNav='nav showNav';
      }else{

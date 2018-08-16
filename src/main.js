@@ -2,6 +2,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import 'promise-polyfill/src/polyfill';
+import VueI18n from 'vue-i18n'
+
 import App from './App'
 import router from './router'
 
@@ -10,18 +12,25 @@ import 'vue-awesome/icons/user'
 
 import Icon from 'vue-awesome/components/Icon'
 
-// import { MdButton, MdContent, MdTabs,MdCard } from 'vue-material/dist/components'
-// import 'vue-material/dist/vue-material.min.css'
-//
-// Vue.use(MdButton)
-// Vue.use(MdContent)
-// Vue.use(MdTabs)
-// Vue.use(MdCard)
+
 
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
+import langs from './lang/index.js'
 
+Vue.use(VueI18n)
 Vue.use(iView);
+
+// langs=JSON.parse(JSON.stringify(langs))
+console.log(langs)
+
+
+const i18n = new VueI18n({
+  locale: 'cn', // set locale
+  messages:langs, // set locale messages
+})
+
+
 
 
 Vue.config.productionTip = false
@@ -34,5 +43,6 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  i18n
 })
