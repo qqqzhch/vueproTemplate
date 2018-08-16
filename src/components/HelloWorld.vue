@@ -35,6 +35,6 @@ a {
 }
 .hello{
   min-height: 700px;
-  background-color: whitesmoke;
+  background-color: #eaedf1;
 }
 </style>

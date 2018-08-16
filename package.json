@@ -10,11 +10,17 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "add": "^2.0.6",
+    "iview": "2.14.0",
+    "iview-loader": "^1.2.1",
     "less": "2.7.3",
     "less-loader": "^4.1.0",
+    "promise-polyfill": "^8.1.0",
     "vue": "^2.5.2",
     "vue-awesome": "^3.1.0",
-    "vue-router": "^3.0.1"
+    "vue-material": "^1.0.0-beta-10.2",
+    "vue-router": "^3.0.1",
+    "yarn": "^1.9.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

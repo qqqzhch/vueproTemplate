@@ -1,17 +1,67 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>2</h2>
+
+
+    <Card>
+      <Form ref="formInline" :model="formInline" :rules="ruleInline">
+       <FormItem prop="user">
+           <Input type="text" v-model="formInline.user" placeholder="Username">
+               <Icon type="ios-person-outline" slot="prepend"></Icon>
+           </Input>
+       </FormItem>
+       <FormItem prop="password">
+           <Input type="password" v-model="formInline.password" placeholder="Password">
+               <Icon type="ios-locked-outline" slot="prepend"></Icon>
+           </Input>
+       </FormItem>
+       <FormItem label="Inputxxxxxxxx">
+           <Input v-model="formInline.user" placeholder="Enter something..."></Input>
+       </FormItem>
+       <FormItem>
+           <Button type="primary" @click="handleSubmit('formInline')">Signin</Button>
+       </FormItem>
+
+   </Form>
+    </Card>
+
+
+
+  <div>
     <router-link to="/"><span>go</span></router-link>
+  </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
+  methods: {
+        handleSubmit(name) {
+            this.$refs[name].validate((valid) => {
+                if (valid) {
+                    this.$Message.success('Success!');
+                } else {
+                    this.$Message.error('Fail!');
+                }
+            })
+        }
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      formInline: {
+                    user: '',
+                    password: ''
+                },
+      ruleInline: {
+                    user: [
+                        { required: true, message: 'Please fill in the user name', trigger: 'blur' }
+                    ],
+                    password: [
+                        { required: true, message: 'Please fill in the password.', trigger: 'blur' },
+                        { type: 'string', min: 6, message: 'The password length cannot be less than 6 bits', trigger: 'blur' }
+                    ]
+                }
     }
   }
 }
@@ -19,22 +69,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.row{
+  margin-top: 16px;
 }
 .hello{
   min-height: 700px;
-  background-color: whitesmoke;
+  background-color: #eaedf1;
+  padding: 10px;
 }
 </style>

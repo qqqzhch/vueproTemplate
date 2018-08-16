@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+
 import headfoot from '@/layouts/default/headfoot.vue'
 import dashboard from '@/layouts/default/dashboard.vue'
 
