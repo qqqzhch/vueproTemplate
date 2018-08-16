@@ -128,8 +128,10 @@ export default {
     }
   },
   methods: {
-    handleScroll () {
-      var  scrolled = window.scrollY > 50;
+    handleScroll (e) {
+      console.log(e);
+      var  scrolled = (window.scrollY||window.pageYOffset) > 50;
+      console.log(scrolled);
       // console.log(window.scrollY);
       if(scrolled){
        this.$data.showNav='nav showNav';
