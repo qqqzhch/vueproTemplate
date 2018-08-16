@@ -7,6 +7,7 @@ export default {
     menu3:'ECOSYSTEM',
     menu4:'ROADMAP',
     menu5:'CONTACT US',
+    menu6:'Blog',
 
   }
 }
