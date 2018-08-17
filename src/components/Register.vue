@@ -1,7 +1,5 @@
 <template>
   <div class="hello">
-
-
     <Card>
       <Form ref="formInline" :model="formInline" :rules="ruleInline">
        <FormItem prop="user">
@@ -18,23 +16,19 @@
            <Input v-model="formInline.user" placeholder="Enter something..."></Input>
        </FormItem>
        <FormItem>
-           <Button type="primary" @click="handleSubmit('formInline')">Signin</Button>
+           <Button type="primary" @click="handleSubmit('formInline')">Next Step</Button>
        </FormItem>
-
    </Form>
     </Card>
-
-
-
   <div>
-    <router-link to="/"><span>go</span></router-link>
+    <router-link to="/"><span>Login</span></router-link>
   </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Register',
   methods: {
         handleSubmit(name) {
             this.$refs[name].validate((valid) => {
