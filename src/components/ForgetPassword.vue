@@ -1,24 +1,27 @@
 <template>
-  <div>
-    <Card>
-      <h1>{{title}}</h1>
-      <Form ref="formInline" :model="formInline" :rules="ruleInline">
-        <FormItem prop="email">
+  <div class="forgetWrapper">
+    <div class="formContainer">
+      <h1 class="title">{{title}}</h1>
+      <Form ref="formInline" :model="formInline" :rules="ruleInline" class="forget">
+        <FormItem prop="email" class="email">
           <Input type="email" v-model="formInline.email" placeholder="Email">
-          <Icon type="ios-person-outline" slot="prepend"></Icon>
+          <Icon size="20" type="ios-email" slot="prepend"></Icon>
           </Input>
         </FormItem>
         <FormItem>
-          <Button type="primary" @click="handleSubmit('formInline')">Retrieve the password</Button>
+          <Button class="button" type="primary" @click="handleSubmit('formInline')">Retrieve the password</Button>
         </FormItem>
+        <div class="bottom">
+          <span>Emails reset the password</span>
+        </div>
       </Form>
-    </Card>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Register",
+  name: "forgetpassword",
   methods: {
     handleSubmit(name) {
       this.$refs[name].validate(valid => {
@@ -32,16 +35,21 @@ export default {
   },
   data() {
     return {
-      title: "Login",
+      title: "Forgot the password",
       formInline: {
-        email: "",
-        password: ""
+        email: ""
       },
       ruleInline: {
         email: [
           {
             required: true,
             message: "Please fill in the Email",
+            trigger: "blur"
+          },
+          {
+            type: "string",
+            pattern:/^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/,
+            message: "Please enter the correct email",
             trigger: "blur"
           }
         ]
@@ -50,7 +58,46 @@ export default {
   }
 };
 </script>
-</script>
-
-<style>
+<style lang="less">
+@import "../layouts/default/mixin/common.less";
+.forgetWrapper {
+  position: relative;
+  min-height: 440px;
+  background-color: #eaedf1;
+  .formContainer {
+    position: absolute;
+    top: 25%;
+    .wh(100%,50%);
+    .title {
+      font-weight: 700;
+      .fsc(20px,#242425);
+      margin-bottom: 30px;
+    }
+    .forget {
+      .media(320px,767px,96vw);
+      .media(768px,1025px,40vw);
+      .media(1026px,1440px,28vw);
+      .hc();
+      input {
+        height: 40px;
+        border-style: solid;
+        border-width: 1px 1px 1px 0px;
+        font-size: 14px;
+        // outline: none;
+      }
+      .ivu-input-group-prepend {
+        background-color: #fff;
+      }
+      .button{
+        font-size: 15px;
+      }
+      .email {
+        margin-bottom: 30px;
+      }
+    }
+    .bottom {
+      .fsc(14px,#999999);
+    }
+  }
+}
 </style>
