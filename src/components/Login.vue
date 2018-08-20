@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import rules from "@/config/rules.js"
 export default {
   name: "Login",
   methods: {
@@ -51,34 +52,7 @@ export default {
         email: "",
         password: ""
       },
-      ruleInline: {
-        email: [
-          {
-            required: true,
-            message: "Please fill in the Email",
-            trigger: "blur"
-          },
-          {
-            type: "string",
-            pattern:/^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/,
-            message: "Please enter the correct email",
-            trigger: "blur"
-          }
-        ],
-        password: [
-          {
-            required: true,
-            message: "Please fill in the password.",
-            trigger: "blur"
-          },
-          {
-            type: "string",
-            min: 6,
-            message: "The password length cannot be less than 6 bits",
-            trigger: "blur"
-          }
-        ]
-      }
+      ruleInline: rules
     };
   }
 };

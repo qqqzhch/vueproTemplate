@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import rules from "@/config/rules.js"
 export default {
   name: "forgetpassword",
   methods: {
@@ -39,21 +40,7 @@ export default {
       formInline: {
         email: ""
       },
-      ruleInline: {
-        email: [
-          {
-            required: true,
-            message: "Please fill in the Email",
-            trigger: "blur"
-          },
-          {
-            type: "string",
-            pattern:/^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/,
-            message: "Please enter the correct email",
-            trigger: "blur"
-          }
-        ]
-      }
+      ruleInline: rules
     };
   }
 };
@@ -67,16 +54,16 @@ export default {
   .formContainer {
     position: absolute;
     top: 25%;
-    .wh(100%,50%);
+    .wh(100%, 50%);
     .title {
       font-weight: 700;
-      .fsc(20px,#242425);
+      .fsc(20px, #242425);
       margin-bottom: 30px;
     }
     .forget {
-      .media(320px,767px,96vw);
-      .media(768px,1025px,40vw);
-      .media(1026px,1440px,28vw);
+      .media(320px, 767px, 96vw);
+      .media(768px, 1025px, 40vw);
+      .media(1026px, 1440px, 28vw);
       .hc();
       input {
         height: 40px;
@@ -88,7 +75,7 @@ export default {
       .ivu-input-group-prepend {
         background-color: #fff;
       }
-      .button{
+      .button {
         font-size: 15px;
       }
       .email {
@@ -96,7 +83,7 @@ export default {
       }
     }
     .bottom {
-      .fsc(14px,#999999);
+      .fsc(14px, #999999);
     }
   }
 }
