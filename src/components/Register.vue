@@ -20,14 +20,14 @@
         </FormItem>
 
         <FormItem prop="confirmPassword" class="confirmPassword">
-          <Input type="password" v-model="formInline.confirmPassword" @blur.prevent="confirmPass" placeholder="Confirm the password">
+          <Input type="password" v-model="formInline.confirmPassword" placeholder="Confirm the password">
           <Icon size="20" type="ios-locked-outline" slot="prepend"></Icon>
           </Input>
         </FormItem>
 
         <FormItem prop="verification" class="verification">
-          <Input type="text" v-model="formInline.verification"  placeholder="Please enter the verification code below">
-          <Icon size="16" type="" slot="prepend"></Icon>
+        <Input type="text" v-model="formInline.verification"  placeholder="Please enter the verification code below">
+        <Icon size="16" type="" slot="prepend"></Icon>
           </Input>
         </FormItem>
 
@@ -66,12 +66,13 @@ export default {
       this.$refs[name].validate(valid => {
         if (valid) {
           this.$Message.success("Success!");
+          this.$router.push({ path: "/usersuccess" });
         } else {
           this.$Message.error("Fail!");
         }
       });
     },
-    validatePass(rule, value, callback){
+    validatePass(rule, value, callback) {
       if (value === "") {
         callback(new Error("Please enter your password"));
       } else {
@@ -81,7 +82,7 @@ export default {
         callback();
       }
     },
-    validateConfirmPass(rule, value, callback){
+    validateConfirmPass(rule, value, callback) {
       if (value === "") {
         callback(new Error("Please enter your password again"));
       } else if (value !== this.formInline.password) {
@@ -99,8 +100,7 @@ export default {
         password: "",
         confirmPassword: ""
       },
-      ruleInline:
-      {
+      ruleInline: {
         email: [
           {
             required: true,
@@ -166,6 +166,7 @@ export default {
     top: 9%;
     .wh(100%, 50%);
     .formHeader {
+      text-align: center;
       font-weight: 700;
       .fsc(13px, #666666);
       .title {
@@ -218,6 +219,7 @@ export default {
         }
       }
       .formBottom {
+        text-align: center;
         font-size: 14px;
       }
     }

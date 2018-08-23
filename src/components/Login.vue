@@ -14,7 +14,7 @@
           </Input>
         </FormItem>
         <FormItem>
-          <Button type="primary" class="button" @click="handleSubmit('formInline')">Login</Button>
+          <Button type="primary"  class="button" @click="handleSubmit('formInline')">Login</Button>
         </FormItem>
         <div class="formBottom">
         <router-link to="/register">
@@ -38,7 +38,7 @@ export default {
     handleSubmit(name) {
       this.$refs[name].validate(valid => {
         if (valid) {
-          this.$Message.success("Success!");
+          this.$router.push({path:'/home'});
         } else {
           this.$Message.error("Fail!");
         }
@@ -71,6 +71,7 @@ export default {
       font-weight: bold;
       font-size: 23px;
       margin-bottom: 30px;
+      text-align: center;
     }
     .login{
       .media(320px,767px,96vw);
@@ -98,6 +99,7 @@ export default {
         font-size: 16px;
       }
       .formBottom{
+        text-align: center;
         font-size: 14px;
     }
     }
