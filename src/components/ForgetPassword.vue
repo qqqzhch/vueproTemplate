@@ -1,6 +1,6 @@
 <template>
   <div class="forgetWrapper">
-    <div class="formContainer">
+    <div class="formContainer" v-if="isShow">
       <h1 class="title">{{title}}</h1>
       <Form ref="formInline" :model="formInline" :rules="ruleInline" class="forget">
         <FormItem prop="email" class="email">
@@ -16,18 +16,24 @@
         </div>
       </Form>
     </div>
+
+  <div v-if="!isShow">
+        <my-card :title="title" :description="desc"></my-card>
+  </div>
+
   </div>
 </template>
 
 <script>
-import rules from "@/config/rules.js"
+import rules from "@/config/rules.js";
+import myCard from '@/components/common/MyCard.vue'
 export default {
   name: "forgetpassword",
   methods: {
     handleSubmit(name) {
       this.$refs[name].validate(valid => {
         if (valid) {
-          this.$Message.success("Success!");
+          this.isShow=false;
         } else {
           this.$Message.error("Fail!");
         }
@@ -40,8 +46,14 @@ export default {
       formInline: {
         email: ""
       },
-      ruleInline: rules
+      ruleInline: rules,
+      isShow:true,
+      title:'Send mail success!',
+      desc:'Please check the email to reset the password'
     };
+  },
+  components:{
+    myCard
   }
 };
 </script>
@@ -56,6 +68,7 @@ export default {
     top: 25%;
     .wh(100%, 50%);
     .title {
+      text-align: center;
       font-weight: 700;
       .fsc(20px, #242425);
       margin-bottom: 30px;
@@ -83,6 +96,7 @@ export default {
       }
     }
     .bottom {
+      text-align: center;
       .fsc(14px, #999999);
     }
   }
